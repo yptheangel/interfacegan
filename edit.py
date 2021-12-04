@@ -83,7 +83,7 @@ def main():
   logger.info(f'Preparing latent codes.')
   if os.path.isfile(args.input_latent_codes_path):
     logger.info(f'  Load latent codes from `{args.input_latent_codes_path}`.')
-    latent_codes = np.load(args.input_latent_codes_path)
+    latent_codes = np.load(args.input_latent_codes_path,allow_pickle=False)
     latent_codes = model.preprocess(latent_codes, **kwargs)
   else:
     logger.info(f'  Sample latent codes randomly.')
